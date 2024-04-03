@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffffff50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    
+      .calculator {
+        width: 500px;
+        height: 600px;
+        background-color: #000000;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 0 50px rgba(249, 249, 249, 0.1);
+        padding: 30px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
+      }
+    
+      input[type="text"] {
+        grid-column: span 4;
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 40px;
+        text-align: right;
+        box-sizing: border-box;
+        outline: none;
+        color: white;
+        background-color: rgba(12, 12, 12, 0.392);
+      }
+    
+      input[type="button"] {
+        width: 90px;
+        height: 90px;
+        padding: 15px;
+        border: none;
+        border-radius: 50%;
+        font-size: 30px;
+        cursor: pointer;
+        transition: background-color 0.9s;
+        margin-left: 12px;
+      }
+    
+      input[type="button"]:hover {
+        background-color: rgb(249, 247, 248);
+      }
+    
+      input[type="button"].operator {
+        background-color: #f0ad4e;
+        color: #fff;
+      }
+    
+      input[type="button"].equals {
+        background-color: #f0ad4e;
+        color: #fff;
+      }
+    
+      input[type="button"].clear {
+        background-color: rgba(255, 255, 255, 0.392);
+        color: #fff;
+      }
+
+      input[type="button"].sign {
+        background-color: rgba(255, 255, 255, 0.392);
+        color: #fff;
+      }
+
+      input[type="button"].percent {
+        background-color: rgba(255, 255, 255, 0.392);
+        color: #fff;
+      }
+
+      input[type="button"].delete {
+        background-color: #f0ad4e;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="calculator">
+      <input type="text" id="display" disabled>
+      <input type="button" value="AC" class="clear" onclick="clearDisplay()">
+      <input type="button" value="+/-" class="sign" onclick="addToDisplay('-')">
+      <input type="button" value="%" class="percent" onclick="addToDisplay('%')">
+      <input type="button" value="÷" class="operator" onclick="addToDisplay('/')">
+
+      <input type="button" value="7" onclick="addToDisplay('7')">
+      <input type="button" value="8" onclick="addToDisplay('8')">
+      <input type="button" value="9" onclick="addToDisplay('9')">
+      <input type="button" value="x" class="operator" onclick="addToDisplay('*')">
+
+      <input type="button" value="4" onclick="addToDisplay('4')">
+      <input type="button" value="5" onclick="addToDisplay('5')">
+      <input type="button" value="6" onclick="addToDisplay('6')">
+      <input type="button" value="-" class="operator" onclick="addToDisplay('-')">
+
+      <input type="button" value="1" onclick="addToDisplay('1')">
+      <input type="button" value="2" onclick="addToDisplay('2')">
+      <input type="button" value="3" onclick="addToDisplay('3')">
+      <input type="button" value="+" class="operator" onclick="addToDisplay('+')">
+
+      <input type="button" value="0" onclick="addToDisplay('0')">
+      <input type="button" value="." onclick="addToDisplay('.')">
+      <input type="button" value="=" class="equals" onclick="calculate()">
+      <input type="button" value="DEL" class="delete" onclick="deleteLastCharacter()">
+      
+    </div>
+    
+    <script>
+      function addToDisplay(value) {
+        document.getElementById('display').value += value;
+      }
+
+      function clearDisplay() {
+        document.getElementById('display').value = '';
+      }
+
+      function deleteLastCharacter(){
+        var currentDisplay = document.getElementById('display').value;
+        document.getElementById('display').value = currentDisplay.slice(0, -1);
+      }
+
+      function calculate() {
+        document.getElementById('display').value = "I miss you<3";
+      }
+    </script>
+  </body>
+</html>
